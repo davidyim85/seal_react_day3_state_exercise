@@ -1,23 +1,56 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import './styles.css'
 
-function App() {
+const App = () => {
+
+  const colors = [
+    'Blue',
+    'Coral',
+    'Violet',
+    'Greenery',
+    'Rose',
+    'Serenity',
+  ]
+
+  const [colorInd, setColorInd] = useState(0)
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div className={`app ${colors[colorInd]}`}>
+      <h1 className={'title'}>Color: {colors[colorInd]}</h1>
+      {colors.map((v, i) => {
+        return (<button onClick={() => setColorInd(i)}>{v}</button>)
+      })}
+      <div>
+
+        <button
+          onClick={() => {
+            let previous = colorInd - 1;
+            if (colorInd === 0) previous = colors.length - 1;
+            setColorInd(previous)
+          }}
         >
-          Learn React
-        </a>
-      </header>
+          previous
+        </button>
+        <button
+          onClick={() => {
+            let next = colorInd + 1;
+            if (colorInd === colors.length - 1) next = 0;
+            setColorInd(next)
+          }}
+        >
+          next
+        </button>
+      </div>
+      <button
+        onClick={() => {
+          const randomIndex = Math.floor(Math.random() * colors.length);
+          setColorInd(randomIndex)
+        }}
+      >
+        random
+      </button>
+
     </div>
   );
 }

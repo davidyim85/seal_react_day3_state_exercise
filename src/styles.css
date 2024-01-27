@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+}
+
+.app {
+    height: 100vh;
+}
+
+.Blue {
+    background-color: #34568B
+}
+
+.Coral {
+    background-color: #FF6F61
+}
+
+.Violet {
+    background-color: #6B5B95
+}
+
+.Greenery {
+    background-color: #88B04B
+}
+
+
+.Rose {
+    background-color: #F7CAC9
+}
+
+
+.Serenity {
+    background-color: #92A8D1
+}
+
+.title {
+    padding: 0px;
+    margin: 0px;
+}
